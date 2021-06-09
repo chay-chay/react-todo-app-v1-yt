@@ -10,7 +10,8 @@ function TodoForm() {
         value={input}
         name="text"
         className="todo-input"
-      />
+          />
+          <button className='todo-button'> Add Todo</button>
     </form>
   );
 }
