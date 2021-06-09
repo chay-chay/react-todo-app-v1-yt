@@ -2,11 +2,19 @@ import React, { useState } from "react";
 import TodoForm from "./TodoForm";
 
 function TodoList() {
-  const [Todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState([]);
+    
+    const addTodo = todo => {
+        if (!todo.text || /^\s*$/.test(todo.text)) {
+            return;
+        }
+        const newTodo = [todo, ...todos]
+        setTodos(newTodo)
+    }
   return (
     <div>
       <h1>What's the plan for today?</h1>
-      <TodoForm />
+          <TodoForm onSubmit={ addTodo }/>
     </div>
   );
 }
